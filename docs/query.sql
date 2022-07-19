@@ -1,5 +1,5 @@
 /* CREATE DATABASE campaigns DEFAULT CHARSET = utf8mb4 DEFAULT COLLATE = utf8mb4_unicode_ci; */
-use campaigns;
+USE campaigns;
 
 CREATE TABLE wp_campaigns (
   id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Campaign unique id',
@@ -30,9 +30,4 @@ CREATE TABLE wp_pages (
   PRIMARY KEY (id)
 );
 
-
-
 SELECT * FROM wp_pages ORDER BY Priority DESC, RAND() LIMIT 5;
-
-
-
