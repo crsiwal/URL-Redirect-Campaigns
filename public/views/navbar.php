@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="<?= base_url(); ?>">Direct</a>
+		<a class="navbar-brand" href="<?= base_url(); ?>">
+			<img height="35" src="<?= base_url("assets/icons/logo.png"); ?>" alt="Redirect URL">
+		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -8,12 +10,12 @@
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 				<li class="nav-item fs-6">
 					<a class="nav-link" href="<?= base_url("newcampaign"); ?>">
-						<i class="fa fa-life-ring" aria-hidden="true"></i> Campaign
+						<i class="fa fa-life-ring" aria-hidden="true"></i> Add Campaign
 					</a>
 				</li>
 				<li class="nav-item fs-6">
 					<a class="nav-link" href="<?= base_url("newpage"); ?>">
-						<i class="fa fa-bullseye" aria-hidden="true"></i> Page
+						<i class="fa fa-bullseye" aria-hidden="true"></i> Add Page
 					</a>
 				</li>
 			</ul>

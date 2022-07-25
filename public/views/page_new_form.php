@@ -9,7 +9,7 @@ $formData = ($error) ? session("formdata") : [];
 ?>
 <?php include("header.php"); ?>
 <?php include("navbar.php"); ?>
-<main class="login">
+<main class="newpage">
 	<div class="container">
 		<div class="row bg-white mt-3">
 			<div class="col-12 col-md-6 m-auto card px-5 py-2 pb-5">

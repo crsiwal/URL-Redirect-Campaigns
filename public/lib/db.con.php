@@ -18,6 +18,8 @@ class DataBase {
 	public function con() {
 	}
 }
+
+
 global $db, $conn;
 if (!isset($db)) {
 	$db = new DataBase();

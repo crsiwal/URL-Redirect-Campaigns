@@ -10,10 +10,17 @@ $request = isset($_SERVER['REDIRECT_URL']) ? trim($_SERVER['REDIRECT_URL'], "/")
 $routes = [
 	"login" => ["path" => "login", "private" => false],
 	"post/login" => ["path" => "login_request", "private" => false],
-	"newcampaign" => ["path" => "newcampaign_form", "private" => true],
-	"post/newcampaign" => ["path" => "newcampaign_request", "private" => true],
-	"newpage" => ["path" => "newpage_form", "private" => true],
-	"post/newpage" => ["path" => "newpage_request", "private" => true],
+	"" => ["path" => "campaign_list", "private" => true],
+	"campaign" => ["path" => "campaign_list", "private" => true],
+	"newcampaign" => ["path" => "campaign_new_form", "private" => true],
+	"editcampaign" => ["path" => "campaign_edit_form", "private" => true],
+	"post/newcampaign" => ["path" => "campaign_new_request", "private" => true],
+	"post/editcampaign" => ["path" => "campaign_edit_request", "private" => true],
+	"page" => ["path" => "page_list", "private" => true],
+	"newpage" => ["path" => "page_new_form", "private" => true],
+	"editpage" => ["path" => "page_edit_form", "private" => true],
+	"post/newpage" => ["path" => "page_new_request", "private" => true],
+	"post/editpage" => ["path" => "page_edit_request", "private" => true],
 ];
 
 if (isset($routes[$request])) {

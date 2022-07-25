@@ -1,14 +1,13 @@
 $(document).ready(function () {
+	$('body').on('change', '#imageautoselect', function () {
+		$("#photo").val("");
+		$("#photo").prop("disabled", $(this).prop("checked"));
+	});
 
-	$("button").click(function () {
-		var jqxhr = $.post("/post/newcampaign", function () {
-			alert("success");
-		}).done(function () {
-			alert("second success");
-		}).fail(function () {
-			alert("error");
-		}).always(function () {
-			alert("finished");
-		});
+	$('body').on('change', '#urlautoselect', function () {
+		$("#webpage").val("");
+		$("#bitly").val("");
+		$("#webpage").prop("disabled", $(this).prop("checked"));
+		$("#bitly").prop("disabled", $(this).prop("checked"));
 	});
 });
