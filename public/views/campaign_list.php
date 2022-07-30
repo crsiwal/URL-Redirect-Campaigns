@@ -8,7 +8,7 @@ $content = [
 
 $offset = (isset($_GET["o"]) ? $_GET["0"] : 0) * 20;
 $private = (isset($_GET["p"]) ? $_GET["p"] : 0);
-$search = (isset($_GET["s"]) ? $_GET["s"] : 0);
+$search = (isset($_GET["s"]) ? $_GET["s"] : "");
 
 $query = "SELECT * FROM wp_campaigns WHERE is_adult=$private";
 if (!empty($search)) {
@@ -22,14 +22,14 @@ $campaigns = $conn->query($query);
 include("header.php");
 include("navbar.php");
 ?>
-<main class="newcampaign">
+<main class="campaigns">
 	<div class="container">
 		<div class="row bg-white mt-2">
 			<div class="col-md-8">
 				<div class="search">
 					<form action="<?= base_url("campaign"); ?>" method="get">
 						<i class="fa fa-search"></i>
-						<input name="s" type="text" class="form-control" placeholder="Have a question? Ask Now">
+						<input name="s" type="text" class="form-control" value="<?= $search; ?>" placeholder="Search campaign by name or URL">
 						<input type="hidden" name="p" value="<?= $private; ?>" />
 						<button class="btn btn-primary">Search</button>
 					</form>

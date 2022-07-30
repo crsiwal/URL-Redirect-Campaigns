@@ -9,13 +9,23 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 				<li class="nav-item fs-6">
-					<a class="nav-link" href="<?= base_url("newcampaign"); ?>">
-						<i class="fa fa-life-ring" aria-hidden="true"></i> Add Campaign
+					<a class="nav-link" href="<?= base_url("page"); ?>">
+						<i class="fa fa-bullseye" aria-hidden="true"></i> Pages
+					</a>
+				</li>
+				<li class="nav-item fs-6">
+					<a class="nav-link" href="<?= base_url("campaign"); ?>">
+						<i class="fa fa-life-ring" aria-hidden="true"></i> Campaigns
 					</a>
 				</li>
 				<li class="nav-item fs-6">
 					<a class="nav-link" href="<?= base_url("newpage"); ?>">
-						<i class="fa fa-bullseye" aria-hidden="true"></i> Add Page
+						<i class="fa fa-bullseye" aria-hidden="true"></i> +Page
+					</a>
+				</li>
+				<li class="nav-item fs-6">
+					<a class="nav-link" href="<?= base_url("newcampaign"); ?>">
+						<i class="fa fa-life-ring" aria-hidden="true"></i> +Campaign
 					</a>
 				</li>
 			</ul>

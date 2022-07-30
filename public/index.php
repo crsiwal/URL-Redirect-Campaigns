@@ -8,8 +8,6 @@ define('PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 $request = isset($_SERVER['REDIRECT_URL']) ? trim($_SERVER['REDIRECT_URL'], "/") : trim($_SERVER['REQUEST_URI'], "/");
 
 $routes = [
-	"login" => ["path" => "login", "private" => false],
-	"post/login" => ["path" => "login_request", "private" => false],
 	"" => ["path" => "campaign_list", "private" => true],
 	"campaign" => ["path" => "campaign_list", "private" => true],
 	"newcampaign" => ["path" => "campaign_new_form", "private" => true],
@@ -21,6 +19,9 @@ $routes = [
 	"editpage" => ["path" => "page_edit_form", "private" => true],
 	"post/newpage" => ["path" => "page_new_request", "private" => true],
 	"post/editpage" => ["path" => "page_edit_request", "private" => true],
+	"post/delpage" => ["path" => "page_delete_request", "private" => true],
+	"login" => ["path" => "login", "private" => false],
+	"post/login" => ["path" => "login_request", "private" => false],
 ];
 
 if (isset($routes[$request])) {
@@ -34,8 +35,7 @@ if (isset($routes[$request])) {
 		load($routes[$request]["path"], "views");
 	}
 } else {
-	// get the url based on the priority
-	echo "redirect $request";
+	load("index", "redirect");
 }
 
 function base_url($path = "") {

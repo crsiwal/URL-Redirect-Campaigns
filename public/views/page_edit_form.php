@@ -1,11 +1,33 @@
 <?php
-$content = [
-	"title" => "Add new campaign | Redirect Campaign Tool",
-	"description" => "add new campaign for public use",
-];
+global $conn;
+load("db.con", "lib");
 $errorMessage = session("error");
 $error = (empty($errorMessage) ? false : true);
-$formData = ($error) ? session("formdata") : [];
+if ($error) {
+	$formData = session("formdata");
+} else {
+	if (isset($_GET["id"])) {
+		$pageId = $_GET["id"];
+		$query = "SELECT * FROM wp_pages WHERE id=$pageId;";
+		$page = $conn->query($query);
+		if ($page && $page->num_rows >= 1) {
+			$data = $page->fetch_assoc();
+			$formData = [
+				"id" => $data["id"],
+				"title" => $data["page_name"],
+				"weburl" => $data["page_url"],
+				"bitly" => $data["bitly_url"],
+				"priority" => $data["priority"],
+			];
+		}
+	} else {
+		// Redirect to home
+	}
+}
+$content = [
+	"title" => isset($formData["title"]) ? $formData["title"] : "",
+	"description" => isset($formData["description"]) ? $formData["description"] : "",
+];
 ?>
 <?php include("header.php"); ?>
 <?php include("navbar.php"); ?>
@@ -13,7 +35,7 @@ $formData = ($error) ? session("formdata") : [];
 	<div class="container">
 		<div class="row bg-white mt-2">
 			<div class="col-12 col-md-6 m-auto card px-5 py-2 my-4">
-				<h1 class="fs-2 mt-3">Add New Webpage</h1>
+				<h1 class="fs-2 mt-3">Edit Webpage</h1>
 				<p>Based on the priority this webpage will be redirect</p>
 				<?php
 				if ($error) {
@@ -26,7 +48,7 @@ $formData = ($error) ? session("formdata") : [];
 				<?php
 				}
 				?>
-				<form action="<?= base_url("post/newpage"); ?>" method="POST">
+				<form action="<?= base_url("post/editpage"); ?>" method="POST">
 
 					<!-- title input -->
 					<div class="mb-3">
@@ -59,7 +81,8 @@ $formData = ($error) ? session("formdata") : [];
 						</div>
 					</div>
 					<div class="d-flex justify-content-center py-4">
-						<button type="submit" class="btn btn-primary px-5">Add Webpage</button>
+						<input type="hidden" name="id" value="<?= isset($formData["id"]) ? $formData["id"] : ""; ?>">
+						<button type="submit" class="btn btn-primary px-5">Update Webpage</button>
 					</div>
 				</form>
 			</div>

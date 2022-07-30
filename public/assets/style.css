@@ -50,3 +50,7 @@
   width: 110px;
   background: blue;
 }
+
+.campaigns .card {
+  height: 30vw;
+}
