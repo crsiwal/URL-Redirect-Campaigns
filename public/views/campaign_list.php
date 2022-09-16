@@ -41,7 +41,7 @@ include("navbar.php");
 			if ($campaigns && $campaigns->num_rows >= 0) {
 				while ($row = $campaigns->fetch_assoc()) {
 			?>
-					<div class="col-12 col-md-3">
+					<div class="col-12 col-md-3 mb-2">
 						<div class="card">
 							<img src="<?= $row["image_url"]; ?>" class="card-img-top" alt="<?= $row["title"]; ?>">
 							<div class="card-body">
