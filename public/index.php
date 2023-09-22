@@ -60,5 +60,5 @@ function session($key, $clear = true) {
 }
 
 function load($filePath, $directory = "lib") {
-	require PATH . "/$directory/${filePath}.php";
+	require PATH . "/" . $directory . "/" . $filePath . ".php";
 }

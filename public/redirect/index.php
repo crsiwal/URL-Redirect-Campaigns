@@ -5,10 +5,10 @@ $request =  $conn->real_escape_string($request);
 $query = "SELECT title, summery, image_url, page_url, bitly_url FROM wp_campaigns WHERE slug='$request'";
 $result = $conn->query($query);
 $content = [
-	"title" => "WhatsaApp Groups Active Links",
-	"description" => "WhatsaApp groups active links URL collection",
+	"title" => "Redirect your link",
+	"description" => "Redirect your link",
 	"image" => "",
-	"link" => "https://www.activelinks.in/",
+	"link" => "https://link.gchat.in/",
 ];
 
 if ($result) {
@@ -37,22 +37,20 @@ if ($result) {
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
 	<!-- Required meta tags -->
 	<meta charset="UTF-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
 	<meta name="robots" content="noodp,noydir" />
-	<meta name="description" content="Group chat invite" />
-	<link rel="shortcut icon" href="https://www.activelinks.in/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="https://www.activelinks.in/favicon.ico" type="image/x-icon">
 	<title><?= $content['title']; ?></title>
 	<meta name="description" content="<?= $content['description']; ?>">
 	<meta name="og:title" content="<?= $content['title']; ?>" />
 	<meta name="og:description" content="<?= $content['description']; ?>" />
 	<meta name="og:url" content="<?= $content['link']; ?>" />
 	<meta name="og:image" content="<?= $content['image']; ?>" />
+	<link rel="shortcut icon" href="https://link.gchat.in/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="https://link.gchat.in/favicon.ico" type="image/x-icon">
 	<script>
 		setTimeout(function() {
 			window.location.href = '<?= $content['link']; ?>';
